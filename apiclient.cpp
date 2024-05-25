@@ -1,9 +1,8 @@
 #include "apiclient.h"
 
-ApiClient::ApiClient(const QString& path)
+ApiClient::ApiClient()
 {
-    QUrl url(path);
-    getRequset(url);
+
 }
 
 ApiClient::~ApiClient()
@@ -25,12 +24,12 @@ void ApiClient::getRequset(QUrl &url)
     QObject::connect(reply, &QNetworkReply::finished, this, &ApiClient::getRequestFinished);
 }
 
-void ApiClient::handelRequst(QString &data)
+void ApiClient::sendRecuset(const QString &path)
 {
-    QJsonDocument json = QJsonDocument::fromJson(data.toUtf8());
-    emit apiRecived(json);
-    qDebug() << json;
+    QUrl url(path);
+    getRequset(url);
 }
+
 
 void ApiClient::getRequestFinished()
 {

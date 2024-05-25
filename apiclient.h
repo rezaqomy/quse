@@ -9,14 +9,11 @@
 
 class ApiClient: public QObject
 {
-
 public:
-    ApiClient(const QString& path);
+    ApiClient();
     ~ApiClient();
 
 
-signals:
-    void apiRecived(const QJsonDocument& json){}
 
 public slots:
     void getRequestFinished() ;
@@ -28,7 +25,10 @@ private:
     QNetworkAccessManager* manager;
     QNetworkReply* reply;
     void getRequset(QUrl& url);
-    void handelRequst(QString& data);
+
+protected:
+    void virtual handelRequst(QString& data)=0;
+    void sendRecuset(const QString& path);
 
 };
 

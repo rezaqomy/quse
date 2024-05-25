@@ -1,14 +1,13 @@
 #include "mainwindow.h"
-#include "apiclient.h"
-
+#include "getingqustions.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    QString path = "https://opentdb.com/api.php?amount=10";
-    ApiClient apiclient(path);
+
+    GetingQustions getQustion;
     w.show();
     return a.exec();
 }

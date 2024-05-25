@@ -11,14 +11,16 @@ TEMPLATE = app
 
 SOURCES += \
     apiclient.cpp \
-    getqustions.cpp \
+    getingqustions.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    question.cpp
 
 HEADERS += \
     apiclient.h \
-    getqustions.h \
-    mainwindow.h
+    getingqustions.h \
+    mainwindow.h \
+    question.h
 
 FORMS += \
     mainwindow.ui
