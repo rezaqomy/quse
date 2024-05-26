@@ -24,7 +24,7 @@ void ApiClient::getRequset(QUrl &url)
     QObject::connect(reply, &QNetworkReply::finished, this, &ApiClient::getRequestFinished);
 }
 
-void ApiClient::sendRecuset(const QString &path)
+void ApiClient::sendRequest(const QString &path)
 {
     QUrl url(path);
     getRequset(url);

@@ -1,10 +1,10 @@
 #ifndef APICLIENT_H
 #define APICLIENT_H
 
+
+#include "question.h"
 #include <QtNetwork>
 #include <QApplication>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QString>
 
 class ApiClient: public QObject
@@ -28,7 +28,7 @@ private:
 
 protected:
     void virtual handelRequst(QString& data)=0;
-    void sendRecuset(const QString& path);
+    void sendRequest(const QString& path);
 
 };
 

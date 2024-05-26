@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "apiclient.h"
+#include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
