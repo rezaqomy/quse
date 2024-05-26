@@ -23,7 +23,6 @@ void GetingQustions::handelRequst(QString &data)
         for (int i{}; i < questionsJsons.size(); i++){
             Question* question = &jsonToQuestion(questionsJsons[i]);
             questions.push_back(question);
-            qDebug() << "ok";
         }
 
     } else {
