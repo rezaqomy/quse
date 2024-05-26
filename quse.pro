@@ -11,6 +11,7 @@ TEMPLATE = app
 
 SOURCES += \
     apiclient.cpp \
+    category.cpp \
     getingqustions.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     apiclient.h \
+    category.h \
     getingqustions.h \
     mainwindow.h \
     question.h

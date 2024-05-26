@@ -1,0 +1,32 @@
+#include "category.h"
+
+Category::Category(int &id, QString &title)
+{
+   setID(id);
+   setTitle(t)
+}
+
+Category::Category()
+{
+    
+}
+
+void Category::setID(int &id)
+{
+    
+}
+
+void Category::setTitle(QString &title)
+{
+    
+}
+
+int &Category::getID()
+{
+    
+}
+
+QString &Category::getTitle()
+{
+    
+}
