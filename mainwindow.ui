@@ -14,9 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
-<<<<<<< HEAD
   <widget class="QMenuBar" name="menubar"/>
-=======
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -27,7 +25,6 @@
     </rect>
    </property>
   </widget>
->>>>>>> connect-requests
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>

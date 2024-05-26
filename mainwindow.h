@@ -2,11 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-<<<<<<< HEAD
-=======
 #include "apiclient.h"
 #include <iostream>
->>>>>>> connect-requests
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,9 +20,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-<<<<<<< HEAD
-=======
 
->>>>>>> connect-requests
 };
 #endif // MAINWINDOW_H
