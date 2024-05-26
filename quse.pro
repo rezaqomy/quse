@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network sql widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,14 +15,16 @@ SOURCES += \
     getingqustions.cpp \
     main.cpp \
     mainwindow.cpp \
-    question.cpp
+    question.cpp \
+    repository.cpp
 
 HEADERS += \
     apiclient.h \
     category.h \
     getingqustions.h \
     mainwindow.h \
-    question.h
+    question.h \
+    repository.h
 
 FORMS += \
     mainwindow.ui
@@ -32,6 +34,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+target.path = $$[QT_INSTALL_EXAMPLES]/sql/cachedtable
 
 # Add OpenSSL libraries
 unix: LIBS += -L/usr/lib/x86_64-linux-gnu -lssl -lcrypto
