@@ -3,20 +3,28 @@
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QString>
 #include <iostream>
+#include <QVector>
+#include <QDebug>
+#include "category.h"
+
+
 
 class Repository
 {
 public:
-    Repository(QString& dbName);
+    Repository();
+    ~Repository();
+    void addCategory(QVector<Category*>& categorys);
 
 
 protected:
-    void createDatabase(QString& dbName);
     QSqlDatabase db;
-    QSqlQuery query;
+    QSqlQuery* query;
     void createTable();
+    void createDatabase();
 
 };
 

@@ -15,8 +15,7 @@ public:
     GetingQustions();
     ~GetingQustions();
     void getQuestion(int number, int category, QString difficaly);
-Q_SIGNALS:
-    void questionIsReady(QVector<Question*>& questions){}
+
 
 private:
     void handelRequst(QString& data);

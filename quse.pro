@@ -12,6 +12,7 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bkendcontroller.cpp \
     main.cpp \
     mainwindow.cpp\
     apiclient.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     repository.cpp \
 
 HEADERS += \
+    bkendcontroller.h \
     mainwindow.h\
     apiclient.h \
     category.h \

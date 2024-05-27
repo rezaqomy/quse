@@ -28,7 +28,7 @@ void GetingQustions::handelRequst(QString &data)
     } else {
         /* TODO */
     }
-    emit questionIsReady(questions);
+
 
 
 }
@@ -48,13 +48,6 @@ Question& GetingQustions::jsonToQuestion(QJsonValueRef jsonValue)
        incorrectAnswerVector.push_back(data[i - 1].toString());
     }
     question.setIncorrectAnswers(incorrectAnswerVector);
-    qDebug() <<
-                question.getCategory() <<
-                question.getCorrectAnswer() <<
-                question.getDifficulty() <<
-                question.getQuestion() <<
-                question.getType() <<
-                question.getIncorrectAnswers();
     return question;
 }
 
