@@ -27,6 +27,7 @@ void Repository::createDatabase()
 void Repository::createTable()
 {
     query->exec("CREATE TABLE category (id INTEGER, title TEXT)");
+    query->exec("CREATE TABLE score (score INTEGER, name TEXT, date TEXT)");
 }
 
 
@@ -56,4 +57,21 @@ void Repository::addCategory(QVector<Category*> &categorys)
 
     }
     qDebug() << "categorys added";
+}
+
+void Repository::addScore(int score, QString name, QString date)
+{
+    QString queryAddScore = "INSERT INTO score (score, name, date) VALUES (?, ?, ?)";
+    query->prepare(queryAddScore);
+    query->bindValue(0, score);
+    query->bindValue(1, name);
+    query->bindValue(2, date);
+    qDebug() << score << name << date;
+    bool result = query->exec();
+
+    if (result) {
+      ;
+    } else {
+      qDebug() << "Error inserting score: " << query->lastError().text();
+    }
 }

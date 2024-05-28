@@ -18,6 +18,7 @@ public:
     Repository();
     ~Repository();
     void addCategory(QVector<Category*>& categorys);
+    void addScore(int score, QString name, QString date);
 
 
 protected:
@@ -25,7 +26,6 @@ protected:
     QSqlQuery* query;
     void createTable();
     void createDatabase();
-
 };
 
 #endif // REPOSITORY_H

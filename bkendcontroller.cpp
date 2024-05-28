@@ -1,13 +1,19 @@
 #include "bkendcontroller.h"
 
-BkendController::BkendController(MainWindow& w)
+BkendController::BkendController(MainWindow* w)
 {
+    window = w;
     repository = new Repository();
 }
 
 void BkendController::sendQuestionRequest(int num, int category, QString difficalty)
 {
     getQuestion(num, category, difficalty);
+}
+
+void BkendController::addScore(int score, QString name)
+{
+    repository->addScore(score, name, QDate::currentDate().toString("yyyy-MM-dd HH:MM"));
 }
 
 void BkendController::categoryIsReady(QVector<Category*> &category)

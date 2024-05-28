@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    BkendController controller(w);
+    BkendController controller(&w);
     controller.sendQuestionRequest(5, 9, "hard");
 
     w.show();
