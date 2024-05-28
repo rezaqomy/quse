@@ -33,6 +33,9 @@ void ApiClient::sendRequest(const QString &path)
 
 void ApiClient::getRequestFinished()
 {
+    if (reply->error() != QNetworkReply::NoError) {
+        qDebug() << reply->error();
+    }
     QString result = reply->readAll();
     handelRequst(result);
 }

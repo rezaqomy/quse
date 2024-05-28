@@ -25,9 +25,4 @@ Category* GetingCategory::jsonToCategory(QJsonValueRef jsonData)
     QString name = json["name"].toString();
     Category* category = new Category(num, name);
     return category;
-
-
-
-
-    return category;
 }

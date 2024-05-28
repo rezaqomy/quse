@@ -2,7 +2,7 @@
 
 GetingQustions::GetingQustions()
 {
-    getQuestion(10, 15, "hard");
+
 }
 
 GetingQustions::~GetingQustions()
@@ -21,33 +21,33 @@ void GetingQustions::handelRequst(QString &data)
     if (json["response_code"].toDouble() == 0){
         QJsonArray questionsJsons = json["results"].toArray();
         for (int i{}; i < questionsJsons.size(); i++){
-            Question* question = &jsonToQuestion(questionsJsons[i]);
+            Question* question = jsonToQuestion(questionsJsons[i]);
             questions.push_back(question);
         }
 
     } else {
+        qDebug() << json;
         /* TODO */
     }
-
-
+    qDebug() << questions;
+    questionIsReady(questions);
 
 }
 
-Question& GetingQustions::jsonToQuestion(QJsonValueRef jsonValue)
+Question* GetingQustions::jsonToQuestion(QJsonValueRef jsonValue)
 {
-    Question question;
     QJsonObject json = jsonValue.toObject();
-    question.setCategory( json["category"].toString());
-    question.setQuestion(json["question"].toString());
-    question.setType(json["type"].toString());
-    question.setDifficulty(json["difficulty"].toString());
-    question.setCorrectAnswer(json["correct_answer"].toString());
+    QString category = json["category"].toString();
+    QString question = json["question"].toString();
+    QString type = json["type"].toString();
+    QString difficulty = json["difficulty"].toString();
+    QString answer = json["correct_answer"].toString();
     QVector<QString> incorrectAnswerVector;
     auto data = json["incorrect_answers"].toArray();
-    for (int i {data.size()}; i > 0; i--){
-       incorrectAnswerVector.push_back(data[i - 1].toString());
+    for (int i {}; i < data.size(); i++){
+       incorrectAnswerVector.push_back(data[i].toString());
     }
-    question.setIncorrectAnswers(incorrectAnswerVector);
-    return question;
+    Question* questions = new Question(type, difficulty, category, question, answer, incorrectAnswerVector);
+    return questions;
 }
 
