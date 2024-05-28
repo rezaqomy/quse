@@ -14,6 +14,7 @@ class BkendController: public GetingCategory, GetingQustions
 public:
     BkendController(MainWindow* w);
     void sendQuestionRequest(int num, int category, QString difficalty);
+    void addScore(int score, QString name);
 private:
     void categoryIsReady(QVector<Category*>& category);
     void questionIsReady(QVector<Question*>& questions);
