@@ -6,29 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>720</height>
+    <width>1024</width>
+    <height>1024</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-image: url(:/Images/Resources/Bg1.jpeg);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>-20</y>
-      <width>1200</width>
+      <x>0</x>
+      <y>0</y>
+      <width>900</width>
       <height>700</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QPushButton" name="btnSingle">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>150</y>
+        <x>30</x>
+        <y>80</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -38,6 +48,10 @@
         <family>B Nazanin</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Single Player</string>
@@ -46,8 +60,8 @@
      <widget class="QPushButton" name="btnMulti">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>210</y>
+        <x>30</x>
+        <y>140</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -57,6 +71,10 @@
         <family>B Nazanin</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Multi Player</string>
@@ -65,8 +83,8 @@
      <widget class="QPushButton" name="btnAbout">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>330</y>
+        <x>30</x>
+        <y>260</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -76,6 +94,10 @@
         <family>B Nazanin</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>About Us!</string>
@@ -84,8 +106,8 @@
      <widget class="QPushButton" name="btnSetting">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>270</y>
+        <x>30</x>
+        <y>200</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -95,6 +117,10 @@
         <family>B Nazanin</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Setting</string>
@@ -103,8 +129,8 @@
      <widget class="QPushButton" name="btnExit">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>390</y>
+        <x>30</x>
+        <y>320</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -114,6 +140,13 @@
         <family>B Nazanin</family>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 127);</string>
       </property>
       <property name="text">
        <string>Exit :(</string>
@@ -128,7 +161,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
+     <width>1024</width>
      <height>20</height>
     </rect>
    </property>
