@@ -11,9 +11,14 @@ void BkendController::sendQuestionRequest(int num, int category, QString diffica
     getQuestion(num, category, difficalty);
 }
 
-void BkendController::addScore(int score, QString name)
+void BkendController::addScore(Score score)
 {
-    repository->addScore(score, name, QDate::currentDate().toString("yyyy-MM-dd HH:MM"));
+    repository->addScore(score);
+}
+
+QVector<Score *> BkendController::getAllScore()
+{
+    return repository->getScore();
 }
 
 void BkendController::categoryIsReady(QVector<Category*> &category)

@@ -21,6 +21,7 @@ SOURCES += \
     getingqustions.cpp \
     question.cpp \
     repository.cpp \
+    score.cpp
 
 HEADERS += \
     bkendcontroller.h \
@@ -31,6 +32,7 @@ HEADERS += \
     getingqustions.h \
     question.h \
     repository.h \
+    score.h
 
 
 

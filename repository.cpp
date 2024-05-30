@@ -59,14 +59,14 @@ void Repository::addCategory(QVector<Category*> &categorys)
     qDebug() << "categorys added";
 }
 
-void Repository::addScore(int score, QString name, QString date)
+void Repository::addScore(Score& score)
 {
     QString queryAddScore = "INSERT INTO score (score, name, date) VALUES (?, ?, ?)";
     query->prepare(queryAddScore);
-    query->bindValue(0, score);
-    query->bindValue(1, name);
-    query->bindValue(2, date);
-    qDebug() << score << name << date;
+    query->bindValue(0, score.getScore());
+    query->bindValue(1, score.getName());
+    query->bindValue(2, score.getStringDate());
+    qDebug() << score.getScore() << score.getName() << score.getStringDate();
     bool result = query->exec();
 
     if (result) {
@@ -74,4 +74,24 @@ void Repository::addScore(int score, QString name, QString date)
     } else {
       qDebug() << "Error inserting score: " << query->lastError().text();
     }
+}
+
+QVector<Score *> Repository::getScore()
+{
+    query->exec("SELECT * FROM score ORDER BY score DESC");
+
+
+    QVector<Score *> scores;
+    while (query->next()) {
+        int score = query->value(0).toInt();
+        QString name = query->value(1).toString();
+        QString date = query->value(2).toString();
+        Score* scoreInfo = new Score(score, name, date);
+        scores.push_back(scoreInfo);
+
+    }
+    if (!query->exec()){
+        qDebug() << "error in geting score : " << query->lastError();
+    }
+    return scores;
 }

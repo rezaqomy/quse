@@ -9,6 +9,7 @@
 #include <QVector>
 #include <QDebug>
 #include "category.h"
+#include "score.h"
 
 
 
@@ -18,7 +19,9 @@ public:
     Repository();
     ~Repository();
     void addCategory(QVector<Category*>& categorys);
-    void addScore(int score, QString name, QString date);
+    void addScore(Score& score);
+    QVector<Score*> getScore();
+
 
 
 protected:
