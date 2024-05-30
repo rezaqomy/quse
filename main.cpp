@@ -12,9 +12,6 @@ int main(int argc, char *argv[])
     controller.sendQuestionRequest(5, 9, "hard");
     controller.addScore(Score(1, "reza"));
     QVector<Score*> scores = controller.getAllScore();
-    for (int i{}; i < scores.size(); i++) {
-        qDebug() << scores[i]->getScore() << scores[i]->getName() << scores[i]->getStringDate();
-    }
     w.show();
     return a.exec();
 }

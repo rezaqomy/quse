@@ -56,7 +56,6 @@ void Repository::addCategory(QVector<Category*> &categorys)
         }
 
     }
-    qDebug() << "categorys added";
 }
 
 void Repository::addScore(Score& score)
@@ -66,7 +65,6 @@ void Repository::addScore(Score& score)
     query->bindValue(0, score.getScore());
     query->bindValue(1, score.getName());
     query->bindValue(2, score.getStringDate());
-    qDebug() << score.getScore() << score.getName() << score.getStringDate();
     bool result = query->exec();
 
     if (result) {

@@ -29,7 +29,6 @@ void GetingQustions::handelRequst(QString &data)
         qDebug() << json;
         /* TODO */
     }
-    qDebug() << questions;
     questionIsReady(questions);
 
 }

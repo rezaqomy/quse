@@ -28,7 +28,7 @@ void BkendController::categoryIsReady(QVector<Category*> &category)
 
 void BkendController::questionIsReady(QVector<Question *> &questions)
 {
-    qDebug() << "question is ready " << questions[0]->getQuestion();
+    ;
 }
 
 
