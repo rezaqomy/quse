@@ -1,8 +1,9 @@
-#ifndef BKENDCONTROLLER_H
-#define BKENDCONTROLLER_H
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 #include <QDate>
 #include <QDateTimeEdit>
+#include <QObject>
 #include "getingcategory.h"
 #include "getingqustions.h"
 #include "repository.h"
@@ -10,18 +11,23 @@
 #include "score.h"
 
 
-class BkendController: public GetingCategory, GetingQustions
+class Controller: public QObject
 {
+    Q_OBJECT
 public:
-    BkendController(MainWindow* w);
-    void sendQuestionRequest(int num, int category, QString difficalty);
-    void addScore(Score score);
+    Controller(MainWindow* w);
     QVector<Score*> getAllScore();
+    void addScore(Score score);
+public slots:
+    void sendQuestionRequest(int category);
+
 private:
     void categoryIsReady(QVector<Category*>& category);
     void questionIsReady(QVector<Question*>& questions);
     Repository* repository;
+    GetingCategory* getCategory;
+    GetingQustions* getQuestion;
     MainWindow* window;
 };
 
-#endif // BKENDCONTROLLER_H
+#endif // CONTROLLER_H

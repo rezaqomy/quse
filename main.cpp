@@ -1,16 +1,15 @@
 #include "mainwindow.h"
 #include "getingqustions.h"
 #include "getingcategory.h"
-#include "bkendcontroller.h"
+#include "controller.h"
+#include <QObject>
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    BkendController controller(&w);
-    controller.sendQuestionRequest(5, 9, "hard");
-    controller.addScore(Score(1, "reza"));
+    Controller controller(&w);
     QVector<Score*> scores = controller.getAllScore();
     w.show();
     return a.exec();
