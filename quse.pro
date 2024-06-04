@@ -1,11 +1,8 @@
-QT       += core gui network sql widgets
-
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
-TEMPLATE = app
-
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -13,6 +10,7 @@ TEMPLATE = app
 
 SOURCES += \
     controller.cpp \
+    aboutus.cpp \
     main.cpp \
     mainwindow.cpp\
     apiclient.cpp \
@@ -24,8 +22,9 @@ SOURCES += \
     score.cpp
 
 HEADERS += \
+    aboutus.h \
+    mainwindow.h
     controller.h \
-    mainwindow.h\
     apiclient.h \
     category.h \
     getingcategory.h \
@@ -34,22 +33,14 @@ HEADERS += \
     repository.h \
     score.h
 
-
-
-
 FORMS += \
-    mainwindow.ui \
+    aboutus.ui \
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-
-
-target.path = $$[QT_INSTALL_EXAMPLES]/sql/cachedtable
-
-# Add OpenSSL libraries
-unix: LIBS += -L/usr/lib/x86_64-linux-gnu -lssl -lcrypto
-unix: INCLUDEPATH += /usr/include/openssl
-
+RESOURCES += \
+    Resources.qrc
