@@ -12,12 +12,14 @@ static const QString QUESTION_URL = "https://opentdb.com/api.php?amount=%1&categ
 
 class GetingQustions: public ApiClient
 {
+    Q_OBJECT
 public:
     GetingQustions();
-    ~GetingQustions();
-protected:
     void getQuestion(int number, int category, QString difficaly);
-    void virtual questionIsReady(QVector<Question*>& questions)=0;
+    ~GetingQustions();
+
+Q_SIGNALS:
+    void questionIsReady(QVector<Question*>& questions);
 
 private:
     void handelRequst(QString& data);
