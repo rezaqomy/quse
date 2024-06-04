@@ -31,24 +31,18 @@ void MainWindow::on_btnExit_clicked()
 
 void MainWindow::on_btnSingle_clicked()
 {
-    ui -> stackedWidget-> setCurrentIndex(1);
-}
-
-
-void MainWindow::on_btnBack1_clicked()
-{
-    ui -> stackedWidget-> setCurrentIndex(0);
-}
-
-
-void MainWindow::on_btnBack2_clicked()
-{
-    ui -> stackedWidget-> setCurrentIndex(0);
+    ui->menu_stackedWidget->setCurrentIndex(1);
 }
 
 
 void MainWindow::on_btnMulti_clicked()
 {
-    ui -> stackedWidget-> setCurrentIndex(2);
+    ui->menu_stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_btnBack2_clicked()
+{
+    ui->menu_stackedWidget->setCurrentIndex(0);
 }
 

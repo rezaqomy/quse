@@ -24,11 +24,9 @@ private slots:
 
     void on_btnSingle_clicked();
 
-    void on_btnBack1_clicked();
+    void on_btnMulti_clicked();
 
     void on_btnBack2_clicked();
-
-    void on_btnMulti_clicked();
 
 private:
     Ui::MainWindow *ui;
