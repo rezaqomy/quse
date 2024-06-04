@@ -7,7 +7,7 @@ Controller::Controller(MainWindow* w)
     getQuestion = new GetingQustions();
     getCategory->connect(getCategory, &GetingCategory::categoryIsReady, this, &Controller::categoryIsReady);
     getQuestion->connect(getQuestion, &GetingQustions::questionIsReady, this, &Controller::questionIsReady);
-//    w->connect(w, &MainWindow::getCategoryRecuest, this, &Controller::sendQuestionRequest);
+    w->connect(w, &MainWindow::getCategoryRecuest, this, &Controller::sendQuestionRequest);
     repository = new Repository();
 }
 
@@ -29,7 +29,7 @@ QVector<Score *> Controller::getAllScore()
 void Controller::categoryIsReady(QVector<Category*> &category)
 {
     repository->addCategory(category);
-//    window->setCategory(category);
+    window->setCategory(category);
 }
 
 void Controller::questionIsReady(QVector<Question *> &questions)

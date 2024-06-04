@@ -3,7 +3,8 @@
 
 #include <QMainWindow>
 #include <QDebug>
-#include <aboutus.h>
+#include "aboutus.h"
+#include "categoryview.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void setCategory(QVector<Category*>& categorys);
+    void getQuestionRecuestSended();
+Q_SIGNALS:
+    void getCategoryRecuest(int id);
 
 private slots:
     void on_btnAbout_clicked();
@@ -28,8 +33,13 @@ private slots:
 
     void on_btnBack2_clicked();
 
+    void on_btnStartSingle_clicked();
+
 private:
     Ui::MainWindow *ui;
     AboutUs *ptrabout;
+    QVector<Category*> categorys;
+    void startLoading();
+    void handelGetQuestion(int id);
 };
 #endif // MAINWINDOW_H

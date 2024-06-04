@@ -125,7 +125,7 @@ background-image: url(:/Images/Resources/Bg1.jpeg);</string>
                  <string notr="true">color: rgb(255, 255, 255);</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="menu_page_in_stacked">
                  <widget class="QPushButton" name="btnSingle">
