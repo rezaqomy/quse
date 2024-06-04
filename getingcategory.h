@@ -10,12 +10,14 @@ static const QString CATEGORY_URL = "https://opentdb.com/api_category.php";
 
 class GetingCategory: public ApiClient
 {
+    Q_OBJECT
 public:
     GetingCategory();
-
-protected:
     void getCategorys();
-    void virtual categoryIsReady(QVector<Category*>& category)=0;
+
+Q_SIGNALS:
+    void categoryIsReady(QVector<Category*>& category);
+
 
 private:
     void handelRequst(QString& data);

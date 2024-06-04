@@ -6,6 +6,7 @@ GetingCategory::GetingCategory()
 }
 
 
+
 void GetingCategory::handelRequst(QString &data)
 {
     QJsonDocument triviaCategories = QJsonDocument::fromJson(data.toUtf8());
@@ -15,7 +16,7 @@ void GetingCategory::handelRequst(QString &data)
         Category* category = jsonToCategory(categoriesJson[i]);
         categories.push_back(category);
     }
-    categoryIsReady(categories);
+    emit categoryIsReady(categories);
 }
 
 Category* GetingCategory::jsonToCategory(QJsonValueRef jsonData)
