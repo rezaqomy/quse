@@ -35,6 +35,7 @@ void Controller::categoryIsReady(QVector<Category*> &category)
 void Controller::questionIsReady(QVector<Question *> &questions)
 {
     qDebug() << questions[0]->getQuestion() << questions.size();
+    window->setQuestiions(questions);
 }
 
 

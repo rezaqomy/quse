@@ -5,6 +5,7 @@
 #include <QDebug>
 #include "aboutus.h"
 #include "categoryview.h"
+#include "question.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,7 @@ public:
     ~MainWindow();
     void setCategory(QVector<Category*>& categorys);
     void getQuestionRecuestSended();
+    void setQuestiions(QVector<Question*> questions);
 Q_SIGNALS:
     void getCategoryRecuest(int id);
 
@@ -40,6 +42,7 @@ private:
     AboutUs *ptrabout;
     QVector<Category*> categorys;
     void startLoading();
+    void setQuestion(Question* question);
     void handelGetQuestion(int id);
 };
 #endif // MAINWINDOW_H

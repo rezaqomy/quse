@@ -20,6 +20,7 @@ SOURCES += \
     getingcategory.cpp \
     getingqustions.cpp \
     question.cpp \
+    random.cpp \
     repository.cpp \
     score.cpp
 
@@ -33,6 +34,7 @@ HEADERS += \
     getingcategory.h \
     getingqustions.h \
     question.h \
+    random.h \
     repository.h \
     score.h
 

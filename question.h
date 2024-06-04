@@ -3,6 +3,8 @@
 
 #include <QString>
 #include <QVector>
+#include <QDebug>
+#include "random.h"
 
 class Question
 {
@@ -23,6 +25,8 @@ public:
     QString getQuestion() const;
     QString getCorrectAnswer() const;
     const QVector<QString>& getIncorrectAnswers() const;
+    QVector<QString> getRandomAnswers();
+
 
     // Setters
     void setType(const QString& newType);

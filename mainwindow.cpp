@@ -22,7 +22,13 @@ void MainWindow::setCategory(QVector<Category *> &categorys)
     window->setLayout(layout);
 
     ui->category_scrol_area->setWidget(window);
-    ui->main_stacked_widget->setCurrentIndex(2);
+
+}
+
+void MainWindow::setQuestiions(QVector<Question *> questions)
+{
+    ui->main_stacked_widget->setCurrentIndex(3);
+    setQuestion(questions[0]);
 }
 
 void MainWindow::startLoading()
@@ -30,9 +36,21 @@ void MainWindow::startLoading()
     ui->main_stacked_widget->setCurrentIndex(2);
 }
 
+void MainWindow::setQuestion(Question *question)
+{
+    ui->question_label->setText(question->getQuestion());
+    QVector<QString> randomAnswer = question->getRandomAnswers();
+    ui->answer1_radioButton->setText(randomAnswer[0]);
+    ui->answer2_radioButton->setText(randomAnswer[1]);
+    ui->answer3_radioButton->setText(randomAnswer[2]);
+    ui->answer4_radioButton->setText(randomAnswer[3]);
+}
+
+
 void MainWindow::handelGetQuestion(int id)
 {
     emit getCategoryRecuest(id);
+    ui->main_stacked_widget->setCurrentIndex(1);
 }
 
 MainWindow::~MainWindow()
@@ -62,7 +80,7 @@ void MainWindow::on_btnSingle_clicked()
 
 void MainWindow::on_btnMulti_clicked()
 {
-    ui->main_stacked_widget->setCurrentIndex(1);
+    ui->menu_stackedWidget->setCurrentIndex(2);
 }
 
 
@@ -72,10 +90,9 @@ void MainWindow::on_btnBack2_clicked()
 }
 
 
-
-
 void MainWindow::on_btnStartSingle_clicked()
 {
     qDebug() << "okk";
+    ui->main_stacked_widget->setCurrentIndex(2);
 }
 
