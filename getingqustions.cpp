@@ -14,6 +14,11 @@ void GetingQustions::getQuestion(int number, int category, QString difficaly){
     sendRequest(QUESTION_URL.arg(number).arg(category).arg(difficaly));
 }
 
+void GetingQustions::getRandomQuestion()
+{
+    sendRequest(RANDOM_QUESTION_URL);
+}
+
 void GetingQustions::handelRequst(QString &data)
 {
     QVector<Question*> questions;
@@ -30,7 +35,6 @@ void GetingQustions::handelRequst(QString &data)
         /* TODO */
     }
     emit questionIsReady(questions);
-
 }
 
 Question* GetingQustions::jsonToQuestion(QJsonValueRef jsonValue)

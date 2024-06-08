@@ -24,7 +24,7 @@
        <cursorShape>ArrowCursor</cursorShape>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="menu_widget">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -790,7 +790,7 @@ background-color: rgb(0, 0, 127);</string>
                 <widget class="QTextEdit" name="question_label">
                  <property name="maximumSize">
                   <size>
-                   <width>500</width>
+                   <width>16777215</width>
                    <height>16777215</height>
                   </size>
                  </property>

@@ -9,6 +9,7 @@
 #include "apiclient.h"
 
 static const QString QUESTION_URL = "https://opentdb.com/api.php?amount=%1&category=%2&difficulty=%3&type=multiple";
+static const QString RANDOM_QUESTION_URL = "https://opentdb.com/api.php?amount=1&type=multiple";
 
 class GetingQustions: public ApiClient
 {
@@ -16,6 +17,7 @@ class GetingQustions: public ApiClient
 public:
     GetingQustions();
     void getQuestion(int number, int category, QString difficaly);
+    void getRandomQuestion();
     ~GetingQustions();
 
 Q_SIGNALS:

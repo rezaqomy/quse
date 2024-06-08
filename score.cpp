@@ -5,23 +5,32 @@ Score::Score()
 
 }
 
-Score::Score(int score, QString& name, QString& date)
+Score::Score(int easyScore, int mediumScore, int hardScore, QString& name, QString& date)
 {
-    setScore(score);
+    setEasy(easyScore);
+    setMedium(mediumScore);
+    setHard(hardScore);
+    setScore(3*hard + 2*medium + easy);
     setName(name);
     setDate(date);
 }
 
-Score::Score(int score, QString& nane, QDate& date)
+Score::Score(int easyScore, int mediumScore, int hardScore, QString& name, QDate& date)
 {
-    setScore(score);
+    setEasy(easyScore);
+    setMedium(mediumScore);
+    setHard(hardScore);
+    setScore(3*hard + 2*medium + easy);
     setName(name);
     setDate(date);
 }
 
-Score::Score(int score, QString name)
+Score::Score(int easyScore, int mediumScore, int hardScore, QString name)
 {
-    setScore(score);
+    setEasy(easyScore);
+    setMedium(mediumScore);
+    setHard(hardScore);
+    setScore(3*hard + 2*medium + easy);
     setName(name);
     setDate(QDate::currentDate());
 }
@@ -46,6 +55,21 @@ QDate Score::getDate()
     return date;
 }
 
+int Score::getEasy()
+{
+    return easy;
+}
+
+int Score::getMedium()
+{
+    return medium;
+}
+
+int Score::getHard()
+{
+    return hard;
+}
+
 void Score::setScore(int score)
 {
     this->score = score;
@@ -64,4 +88,19 @@ void Score::setDate(QString date)
 void Score::setDate(QDate date)
 {
     this->date = date;
+}
+
+void Score::setEasy(int num)
+{
+    easy = num;
+}
+
+void Score::setMedium(int num)
+{
+    medium = num;
+}
+
+void Score::setHard(int num)
+{
+    hard = num;
 }

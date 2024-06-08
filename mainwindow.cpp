@@ -27,13 +27,15 @@ void MainWindow::setCategory(QVector<Category *> &categorys)
 
 void MainWindow::setQuestiions(QVector<Question *> questions)
 {
-    ui->main_stacked_widget->setCurrentIndex(3);
-    setQuestion(questions[0]);
+    this->questions = questions;
+    updateQuestions();
+
 }
 
 void MainWindow::startLoading()
 {
-    ui->main_stacked_widget->setCurrentIndex(2);
+    ui->main_stacked_widget->setCurrentIndex(1);
+
 }
 
 void MainWindow::setQuestion(Question *question)
@@ -47,10 +49,55 @@ void MainWindow::setQuestion(Question *question)
 }
 
 
-void MainWindow::handelGetQuestion(int id)
+void MainWindow::handelGetQuestion(int id = 0)
 {
-    emit getCategoryRecuest(id);
-    ui->main_stacked_widget->setCurrentIndex(1);
+    if (id == 0) {
+        emit getCategoryRequest();
+    }
+    else {
+        emit getCategoryRequest(id);
+    }
+    startLoading();
+}
+
+void MainWindow::startSurvivalMode()
+{
+    if (isResponsed){
+        ;
+    }
+    userAnswer = "";
+    if (questions.size() == 0){
+        qDebug() << "the questions size lastes 1 this mean question not resived";
+        ui->main_stacked_widget->setCurrentIndex(3);
+        QMessageBox qmsgbox;
+        qmsgbox.setText("مگه سگ دنبالت کرده سریع می زنی");
+        qmsgbox.exec();
+        return;
+    }
+    setQuestion(questions[0]);
+    correctAnswer = questions[0]->getCorrectAnswer();
+    ui->main_stacked_widget->setCurrentIndex(3);
+}
+
+void MainWindow::updateQuestions()
+{
+    switch (mode) {
+    case 1:
+        startSurvivalMode();
+    }
+}
+
+void MainWindow::checkAnswer()
+{
+    if (correctAnswer == userAnswer){
+        QMessageBox msgbox;
+        msgbox.setText("you response correct");
+        msgbox.exec();
+    } else {
+        QMessageBox msgbox;
+        msgbox.setText("you not responsed !!!");
+        msgbox.exec();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +139,25 @@ void MainWindow::on_btnBack2_clicked()
 
 void MainWindow::on_btnStartSingle_clicked()
 {
-    qDebug() << "okk";
-    ui->main_stacked_widget->setCurrentIndex(2);
+    mode = 1;
+    handelGetQuestion();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    if (ui->answer1_radioButton->isChecked()) userAnswer = ui->answer1_radioButton->text();
+    else if (ui->answer2_radioButton->isChecked()) userAnswer = ui->answer2_radioButton->text();
+    else if (ui->answer3_radioButton->isChecked()) userAnswer = ui->answer3_radioButton->text();
+    else if (ui->answer4_radioButton->isChecked()) userAnswer = ui->answer4_radioButton->text();
+    else {
+        qDebug() << "please select them";
+
+        return;
+    }
+
+    isResponsed = true;
+    
+    handelGetQuestion();
 }
 

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include <QMap>
+#include <QMessageBox>
 #include "aboutus.h"
 #include "categoryview.h"
 #include "question.h"
@@ -22,7 +24,7 @@ public:
     void getQuestionRecuestSended();
     void setQuestiions(QVector<Question*> questions);
 Q_SIGNALS:
-    void getCategoryRecuest(int id);
+    void getCategoryRequest(int id = 0);
 
 private slots:
     void on_btnAbout_clicked();
@@ -37,12 +39,28 @@ private slots:
 
     void on_btnStartSingle_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     AboutUs *ptrabout;
     QVector<Category*> categorys;
+
+
     void startLoading();
     void setQuestion(Question* question);
     void handelGetQuestion(int id);
+    void startSurvivalMode();
+    void updateQuestions();
+    void checkAnswer();
+
+
+
+    bool isResponsed{};
+    QString userAnswer{};
+    QString correctAnswer{};
+    QVector<Question *> questions;
+    int mode{};
+    QMap<int, bool> survivalQuestions{};
 };
 #endif // MAINWINDOW_H

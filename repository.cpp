@@ -27,7 +27,7 @@ void Repository::createDatabase()
 void Repository::createTable()
 {
     query->exec("CREATE TABLE category (id INTEGER, title TEXT)");
-    query->exec("CREATE TABLE score (score INTEGER, name TEXT, date TEXT)");
+    query->exec("CREATE TABLE score (score INTEGER, name TEXT, date TEXT, hard INTEGER, medium INTEGER, easy INTEGER)");
 }
 
 
@@ -47,6 +47,7 @@ void Repository::addCategory(QVector<Category*> &categorys)
         query->bindValue(0, idString);
         query->bindValue(1, titleString);
 
+
         bool result = query->exec();
 
         if (result) {
@@ -60,11 +61,14 @@ void Repository::addCategory(QVector<Category*> &categorys)
 
 void Repository::addScore(Score& score)
 {
-    QString queryAddScore = "INSERT INTO score (score, name, date) VALUES (?, ?, ?)";
+    QString queryAddScore = "INSERT INTO score (score, name, date, hard, medium, easy) VALUES (?, ?, ?, ?, ?, ?)";
     query->prepare(queryAddScore);
     query->bindValue(0, score.getScore());
     query->bindValue(1, score.getName());
     query->bindValue(2, score.getStringDate());
+    query->bindValue(3, score.getHard());
+    query->bindValue(4, score.getMedium());
+    query->bindValue(5, score.getEasy());
     bool result = query->exec();
 
     if (result) {
@@ -84,7 +88,13 @@ QVector<Score *> Repository::getScore()
         int score = query->value(0).toInt();
         QString name = query->value(1).toString();
         QString date = query->value(2).toString();
-        Score* scoreInfo = new Score(score, name, date);
+        int hard = query->value(3).toInt();
+        int medium = query->value(4).toInt();
+        int easy = query->value(5).toInt();
+        Score* scoreInfo = new Score(easy, medium, hard, name, date);
+        if (scoreInfo->getScore() != score){
+            qDebug() << "error score not mathing";
+        }
         scores.push_back(scoreInfo);
 
     }

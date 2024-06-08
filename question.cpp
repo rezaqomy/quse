@@ -47,7 +47,6 @@ QVector<QString> Question::getRandomAnswers()
     int size = answer.size();
     for (int i{size - 1}; i >= 0; i--){
         int randomNumber = random::getRandom(i);
-        qDebug() << "two" << i << randomNumber << randomAnswer.size();
         randomAnswer.push_back(answer[randomNumber]);
         answer.remove(randomNumber);
     }

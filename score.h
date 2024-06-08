@@ -9,22 +9,31 @@ class Score
 {
 public:
     Score();
-    Score(int, QString&, QString&);
-    Score(int, QString&, QDate&);
-    Score(int, QString);
+
+    Score(int, int , int, QString&, QString&);
+    Score(int, int , int, QString&, QDate&);
+    Score(int, int, int, QString);
     int getScore();
     QString getName();
     QString getStringDate();
     QDate getDate();
+    int getEasy();
+    int getMedium();
+    int getHard();
 
     void setScore(int score);
     void setName(QString& name);
     void setDate(QString date);
     void setDate(QDate date);
-
+    void setEasy(int num);
+    void setMedium(int num);
+    void setHard(int num);
 
 private:
     int score{};
+    int hard{};
+    int easy{};
+    int medium{};
     QString name{};
     QDate date{};
 };
