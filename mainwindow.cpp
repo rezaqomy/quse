@@ -157,7 +157,7 @@ void MainWindow::on_pushButton_clicked()
     }
 
     isResponsed = true;
-    
+    checkAnswer();
     handelGetQuestion();
 }
 

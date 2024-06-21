@@ -6,6 +6,7 @@
 #include <QtNetwork>
 #include <QApplication>
 #include <QString>
+#include <QByteArray>
 
 class ApiClient: public QObject
 {
