@@ -110,7 +110,7 @@
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="menu_page_in_stacked">
              <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -905,6 +905,65 @@ p, li { white-space: pre-wrap; }
          </spacer>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="page">
+       <widget class="QLabel" name="diffcaly_label">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>130</y>
+          <width>261</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>diffcaly</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="easy_pushButton">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>230</y>
+          <width>103</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>easy</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="medium_pushButton">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>280</y>
+          <width>103</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>medium</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="hard_pushButton">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>330</y>
+          <width>103</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>hard</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>

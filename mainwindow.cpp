@@ -45,14 +45,14 @@ void MainWindow::setQuestion(Question *question)
     ui->answer1_radioButton->setText(randomAnswer[0]);
     ui->answer2_radioButton->setText(randomAnswer[1]);
     ui->answer3_radioButton->setText(randomAnswer[2]);
-    ui->answer4_radioButton->setText(randomAnswer[3]);
+    ui->answer4_radioButton->setText(question->getDifficulty());
 }
 
 
 void MainWindow::handelGetQuestion(int id = 0)
 {
     if (id == 0) {
-        emit getCategoryRequest();
+        emit getCategoryRequest(0 , diffcaly);
     }
     else {
         emit getCategoryRequest(id);
@@ -140,7 +140,7 @@ void MainWindow::on_btnBack2_clicked()
 void MainWindow::on_btnStartSingle_clicked()
 {
     mode = 1;
-    handelGetQuestion();
+    ui->main_stacked_widget->setCurrentIndex(4);
 }
 
 
@@ -159,5 +159,32 @@ void MainWindow::on_pushButton_clicked()
     isResponsed = true;
     checkAnswer();
     handelGetQuestion();
+}
+
+
+void MainWindow::on_easy_pushButton_clicked()
+{
+    diffcaly = "easy";
+    if (mode == 1){
+        handelGetQuestion();
+    }
+}
+
+
+void MainWindow::on_medium_pushButton_clicked()
+{
+    diffcaly = "medium";
+    if (mode == 1){
+        handelGetQuestion();
+    }
+}
+
+
+void MainWindow::on_hard_pushButton_clicked()
+{
+    diffcaly = "hard";
+    if (mode == 1){
+        handelGetQuestion();
+    }
 }
 

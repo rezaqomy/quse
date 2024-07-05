@@ -11,13 +11,12 @@ Controller::Controller(MainWindow* w)
     repository = new Repository();
 }
 
-void Controller::sendQuestionRequest(int category)
+void Controller::sendQuestionRequest(int category, QString diffically)
 {
     if (category == 0) {
-        getQuestion->getRandomQuestion();
+        getQuestion->getRandomQuestion(diffically);
         return;
     }
-    getQuestion->getQuestion(5, category, "hard");
 }
 
 void Controller::addScore(Score score)

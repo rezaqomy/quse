@@ -24,7 +24,7 @@ public:
     void getQuestionRecuestSended();
     void setQuestiions(QVector<Question*> questions);
 Q_SIGNALS:
-    void getCategoryRequest(int id = 0);
+    void getCategoryRequest(int id = 0, QString difficaly = "easy");
 
 private slots:
     void on_btnAbout_clicked();
@@ -41,6 +41,12 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_easy_pushButton_clicked();
+
+    void on_medium_pushButton_clicked();
+
+    void on_hard_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     AboutUs *ptrabout;
@@ -55,6 +61,9 @@ private:
     void checkAnswer();
 
 
+    int ressponsed_single{};
+    int wrong_ressponse_single{};
+    QString diffcaly{};
 
     bool isResponsed{};
     QString userAnswer{};

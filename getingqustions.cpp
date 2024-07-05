@@ -14,9 +14,9 @@ void GetingQustions::getQuestion(int number, int category, QString difficaly){
     sendRequest(QUESTION_URL.arg(number).arg(category).arg(difficaly));
 }
 
-void GetingQustions::getRandomQuestion()
+void GetingQustions::getRandomQuestion(QString difficaly)
 {
-    sendRequest(RANDOM_QUESTION_URL);
+    sendRequest(RANDOM_QUESTION_URL.arg(difficaly));
 }
 
 void GetingQustions::handelRequst(QString &data)

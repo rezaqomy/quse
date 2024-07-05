@@ -19,7 +19,7 @@ public:
     QVector<Score*> getAllScore();
     void addScore(Score score);
 public slots:
-    void sendQuestionRequest(int category);
+    void sendQuestionRequest(int category, QString difficaly);
 
 private:
     void categoryIsReady(QVector<Category*>& category);
