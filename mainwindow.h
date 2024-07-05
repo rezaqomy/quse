@@ -23,9 +23,11 @@ public:
     void setCategory(QVector<Category*>& categorys);
     void getQuestionRecuestSended();
     void setQuestiions(QVector<Question*> questions);
+    void setAllScore(QVector<QPair<int, QString>> easy, QVector<QPair<int, QString>> medium, QVector<QPair<int, QString>> hard);
 Q_SIGNALS:
     void getCategoryRequest(int id = 0, QString difficaly = "easy");
     void sendScore(int score, QString difficaly, QString name);
+    void getAllScore();
 
 private slots:
     void on_btnAbout_clicked();
@@ -47,6 +49,8 @@ private slots:
     void on_medium_pushButton_clicked();
 
     void on_hard_pushButton_clicked();
+
+    void on_btnScoreBoard_clicked();
 
 private:
     Ui::MainWindow *ui;

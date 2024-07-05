@@ -22,7 +22,7 @@ public:
     ~Repository();
     void addCategory(QVector<Category*>& categorys);
     void addScore(int score, QString difficaly, QString name);
-    QMap<int, QString> getScore(QString difficaly);
+    QVector<QPair<int, QString>> getScore(QString difficaly);
 
 
 

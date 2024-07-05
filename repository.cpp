@@ -77,16 +77,17 @@ void Repository::addScore(int score, QString difficaly, QString name)
     }
 }
 
-QMap<int, QString> Repository::getScore(QString difficaly)
+QVector<QPair<int, QString>> Repository::getScore(QString difficaly)
 {
-    query->exec(QString("SELECT * FROM %1_score ORDER BY score DESC").arg(difficaly));
+    query->exec(QString("SELECT * FROM %1_score ORDER BY score DESC Limit 20").arg(difficaly));
 
 
-    QMap<int, QString> scores;
+    QVector<QPair<int, QString>> scores;
     while (query->next()) {
         int score = query->value(0).toInt();
         QString name = query->value(1).toString();
-        scores.insert(score, name);
+        QPair<int, QString> pair(score, name);
+        scores.push_back(pair);
 
     }
     if (!query->exec()){

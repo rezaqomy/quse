@@ -32,6 +32,48 @@ void MainWindow::setQuestiions(QVector<Question *> questions)
 
 }
 
+void MainWindow::setAllScore(QVector<QPair<int, QString>> easy, QVector<QPair<int, QString>> medium, QVector<QPair<int, QString>> hard)
+{
+    QWidget* widget = new QWidget();
+    QGridLayout *layout = new QGridLayout();
+    QLabel* label_easy = new QLabel("easy");
+    QLabel* label_medium = new QLabel("medium");
+    QLabel* label_hard = new QLabel("hard");
+    QLabel* name = new QLabel("name");
+    QLabel* name_medium = new QLabel("name");
+    QLabel* name_hard = new QLabel("name");
+    layout->addWidget(label_easy, 0, 1);
+    layout->addWidget(name, 0, 2);
+    layout->addWidget(label_medium, 0, 3);
+    layout->addWidget(name_medium, 0, 4);
+    layout->addWidget(label_hard, 0, 5);
+    layout->addWidget(name_hard, 0, 6);
+
+
+    for (int i{}; i < easy.size(); i++) {
+        QLabel* score = new QLabel(QString::number(easy[i].first));
+        QLabel* name = new QLabel(easy[i].second);
+        layout->addWidget(score,i + 1, 1);
+        layout->addWidget(name, i + 1, 2);
+    }
+    for (int i{}; i < medium.size(); i++) {
+        QLabel* score = new QLabel(QString::number(medium[i].first));
+        QLabel* name = new QLabel(medium[i].second);
+        layout->addWidget(score,i + 1, 3);
+        layout->addWidget(name, i + 1, 4);
+    }
+
+    for (int i{}; i < hard.size(); i++) {
+        QLabel* score = new QLabel(QString::number(hard[i].first));
+        QLabel* name = new QLabel(hard[i].second);
+        layout->addWidget(score,i + 1, 5);
+        layout->addWidget(name, i + 1, 6);
+    }
+    widget->setLayout(layout);
+    ui->score_scrollArea->setWidget(widget);
+    ui->main_stacked_widget->setCurrentIndex(5);
+}
+
 void MainWindow::startLoading()
 {
     ui->main_stacked_widget->setCurrentIndex(1);
@@ -210,5 +252,11 @@ void MainWindow::on_hard_pushButton_clicked()
     if (mode == 1){
         handelGetQuestion();
     }
+}
+
+
+void MainWindow::on_btnScoreBoard_clicked()
+{
+    emit getAllScore();
 }
 
