@@ -16,8 +16,8 @@ class Controller: public QObject
     Q_OBJECT
 public:
     Controller(MainWindow* w);
-    QVector<Score*> getAllScore();
-    void addScore(Score score);
+    QMap<int, QString> getAllScore(QString difficaly);
+    void addScore(int score, QString difficaly, QString name);
 public slots:
     void sendQuestionRequest(int category, QString difficaly);
 

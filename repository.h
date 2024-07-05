@@ -2,6 +2,8 @@
 #define REPOSITORY_H
 
 #include <QSqlDatabase>
+#include <QString>
+#include <QMap>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QString>
@@ -19,8 +21,8 @@ public:
     Repository();
     ~Repository();
     void addCategory(QVector<Category*>& categorys);
-    void addScore(Score& score);
-    QVector<Score*> getScore();
+    void addScore(int score, QString difficaly, QString name);
+    QMap<int, QString> getScore(QString difficaly);
 
 
 

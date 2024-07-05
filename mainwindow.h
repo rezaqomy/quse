@@ -25,6 +25,7 @@ public:
     void setQuestiions(QVector<Question*> questions);
 Q_SIGNALS:
     void getCategoryRequest(int id = 0, QString difficaly = "easy");
+    void sendScore(int score, QString difficaly, QString name);
 
 private slots:
     void on_btnAbout_clicked();
@@ -64,6 +65,7 @@ private:
     int ressponsed_single{};
     int wrong_ressponse_single{};
     QString diffcaly{};
+    QString nameSingle{};
 
     bool isResponsed{};
     QString userAnswer{};

@@ -8,6 +8,7 @@ Controller::Controller(MainWindow* w)
     getCategory->connect(getCategory, &GetingCategory::categoryIsReady, this, &Controller::categoryIsReady);
     getQuestion->connect(getQuestion, &GetingQustions::questionIsReady, this, &Controller::questionIsReady);
     w->connect(w, &MainWindow::getCategoryRequest, this, &Controller::sendQuestionRequest);
+    w->connect(w, &MainWindow::sendScore, this, &Controller::addScore);
     repository = new Repository();
 }
 
@@ -19,14 +20,14 @@ void Controller::sendQuestionRequest(int category, QString diffically)
     }
 }
 
-void Controller::addScore(Score score)
+void Controller::addScore(int score, QString difficaly, QString name)
 {
-    repository->addScore(score);
+    repository->addScore(score, difficaly, name);
 }
 
-QVector<Score *> Controller::getAllScore()
+QMap<int, QString> Controller::getAllScore(QString difficaly)
 {
-    return repository->getScore();
+    return repository->getScore(difficaly);
 }
 
 void Controller::categoryIsReady(QVector<Category*> &category)

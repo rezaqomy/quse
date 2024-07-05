@@ -256,56 +256,6 @@ background-color: rgb(0, 0, 127);</string>
                     </layout>
                    </item>
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_5">
-                     <item>
-                      <widget class="QLabel" name="lblDificulty">
-                       <property name="font">
-                        <font>
-                         <family>B Nazanin</family>
-                         <pointsize>14</pointsize>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true"/>
-                       </property>
-                       <property name="text">
-                        <string>Dificulty:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QComboBox" name="comboDificulty">
-                       <property name="font">
-                        <font>
-                         <family>B Nazanin</family>
-                         <pointsize>14</pointsize>
-                         <weight>50</weight>
-                         <bold>false</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true"/>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string>Noobies</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Medium</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Death</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
                     <widget class="QPushButton" name="btnStartSingle">
                      <property name="font">
                       <font>
@@ -683,7 +633,7 @@ background-color: rgb(0, 0, 127);</string>
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>748</width>
+               <width>731</width>
                <height>16</height>
               </rect>
              </property>

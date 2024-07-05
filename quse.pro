@@ -21,8 +21,7 @@ SOURCES += \
     getingqustions.cpp \
     question.cpp \
     random.cpp \
-    repository.cpp \
-    score.cpp
+    repository.cpp
 
 HEADERS += \
     categoryview.h \
@@ -35,8 +34,7 @@ HEADERS += \
     getingqustions.h \
     question.h \
     random.h \
-    repository.h \
-    score.h
+    repository.h
 
 FORMS += \
     aboutus.ui \

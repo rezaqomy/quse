@@ -40,12 +40,14 @@ void MainWindow::startLoading()
 
 void MainWindow::setQuestion(Question *question)
 {
+    ui->correct_response_label->setText(QString::number(ressponsed_single));
+    ui->wrong_response_label->setText(QString::number(wrong_ressponse_single));
     ui->question_label->setText(question->getQuestion());
     QVector<QString> randomAnswer = question->getRandomAnswers();
     ui->answer1_radioButton->setText(randomAnswer[0]);
     ui->answer2_radioButton->setText(randomAnswer[1]);
     ui->answer3_radioButton->setText(randomAnswer[2]);
-    ui->answer4_radioButton->setText(question->getDifficulty());
+    ui->answer4_radioButton->setText(randomAnswer[3]);
 }
 
 
@@ -62,15 +64,14 @@ void MainWindow::handelGetQuestion(int id = 0)
 
 void MainWindow::startSurvivalMode()
 {
-    if (isResponsed){
-        ;
-    }
+
+
     userAnswer = "";
     if (questions.size() == 0){
         qDebug() << "the questions size lastes 1 this mean question not resived";
         ui->main_stacked_widget->setCurrentIndex(3);
         QMessageBox qmsgbox;
-        qmsgbox.setText("مگه سگ دنبالت کرده سریع می زنی");
+        qmsgbox.setText("اشکال در دریافت سوال");
         qmsgbox.exec();
         return;
     }
@@ -89,15 +90,25 @@ void MainWindow::updateQuestions()
 
 void MainWindow::checkAnswer()
 {
-    if (correctAnswer == userAnswer){
-        QMessageBox msgbox;
-        msgbox.setText("you response correct");
-        msgbox.exec();
-    } else {
-        QMessageBox msgbox;
-        msgbox.setText("you not responsed !!!");
-        msgbox.exec();
+    QMessageBox msgbox;
+    if (mode == 1) {
+        ressponsed_single++;
     }
+    if (correctAnswer == userAnswer){
+
+
+        msgbox.setText("you response correct");
+        
+    } else {
+
+        if (mode == 1){
+            wrong_ressponse_single++;
+        }
+        msgbox.setText("you not responsed !!!");
+
+    }
+
+    msgbox.exec();
 }
 
 MainWindow::~MainWindow()
@@ -121,6 +132,8 @@ void MainWindow::on_btnExit_clicked()
 
 void MainWindow::on_btnSingle_clicked()
 {
+    ressponsed_single = 0;
+    wrong_ressponse_single = 0;
     ui->menu_stackedWidget->setCurrentIndex(1);
 }
 
@@ -140,6 +153,7 @@ void MainWindow::on_btnBack2_clicked()
 void MainWindow::on_btnStartSingle_clicked()
 {
     mode = 1;
+    nameSingle = ui->txtName->text();
     ui->main_stacked_widget->setCurrentIndex(4);
 }
 
@@ -158,7 +172,17 @@ void MainWindow::on_pushButton_clicked()
 
     isResponsed = true;
     checkAnswer();
+    if (mode == 1 && wrong_ressponse_single >= 3){
+
+    QMessageBox msgbox;
+    msgbox.setText("you losse !!!");
+    emit sendScore(ressponsed_single, diffcaly, nameSingle);
+    ui->main_stacked_widget->setCurrentIndex(0);
+    ui->menu_stackedWidget->setCurrentIndex(0);
+    return;
+    }
     handelGetQuestion();
+
 }
 
 

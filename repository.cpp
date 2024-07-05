@@ -27,7 +27,9 @@ void Repository::createDatabase()
 void Repository::createTable()
 {
     query->exec("CREATE TABLE category (id INTEGER, title TEXT)");
-    query->exec("CREATE TABLE score (score INTEGER, name TEXT, date TEXT, hard INTEGER, medium INTEGER, easy INTEGER)");
+    query->exec("CREATE TABLE easy_score (score INTEGER, name TEXT)");
+    query->exec("CREATE TABLE medium_score (score INTEGER, name TEXT)");
+    query->exec("CREATE TABLE hard_score (score INTEGER, name TEXT)");
 }
 
 
@@ -59,16 +61,13 @@ void Repository::addCategory(QVector<Category*> &categorys)
     }
 }
 
-void Repository::addScore(Score& score)
+void Repository::addScore(int score, QString difficaly, QString name)
 {
-    QString queryAddScore = "INSERT INTO score (score, name, date, hard, medium, easy) VALUES (?, ?, ?, ?, ?, ?)";
-    query->prepare(queryAddScore);
-    query->bindValue(0, score.getScore());
-    query->bindValue(1, score.getName());
-    query->bindValue(2, score.getStringDate());
-    query->bindValue(3, score.getHard());
-    query->bindValue(4, score.getMedium());
-    query->bindValue(5, score.getEasy());
+    QString queryAddScore = "INSERT INTO %1_score (score, name) VALUES (?, ?)";
+    query->prepare(queryAddScore.arg(difficaly));
+    query->bindValue(0, score);
+    query->bindValue(1, name);
+
     bool result = query->exec();
 
     if (result) {
@@ -78,24 +77,16 @@ void Repository::addScore(Score& score)
     }
 }
 
-QVector<Score *> Repository::getScore()
+QMap<int, QString> Repository::getScore(QString difficaly)
 {
-    query->exec("SELECT * FROM score ORDER BY score DESC");
+    query->exec(QString("SELECT * FROM %1_score ORDER BY score DESC").arg(difficaly));
 
 
-    QVector<Score *> scores;
+    QMap<int, QString> scores;
     while (query->next()) {
         int score = query->value(0).toInt();
         QString name = query->value(1).toString();
-        QString date = query->value(2).toString();
-        int hard = query->value(3).toInt();
-        int medium = query->value(4).toInt();
-        int easy = query->value(5).toInt();
-        Score* scoreInfo = new Score(easy, medium, hard, name, date);
-        if (scoreInfo->getScore() != score){
-            qDebug() << "error score not mathing";
-        }
-        scores.push_back(scoreInfo);
+        scores.insert(score, name);
 
     }
     if (!query->exec()){
