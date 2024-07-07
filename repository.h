@@ -11,7 +11,7 @@
 #include <QVector>
 #include <QDebug>
 #include "category.h"
-#include "score.h"
+
 
 
 
