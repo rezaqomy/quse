@@ -155,7 +155,18 @@ void MainWindow::checkMultyMode()
     number_question = 0;
 
     if (round == 2 && part_of_round == 2){
-        ;
+        QMessageBox msgbox;
+        if (player_one_responsed > player_two_responsed) {
+            msgbox.setText("the " + name_player_one + "is wone !!!");
+        } else if (player_one_responsed == player_two_responsed) {
+            msgbox.setText("draw!!!");
+        } else {
+            msgbox.setText("the " + name_player_two + "is wone !!!");
+        }
+        msgbox.exec();
+        ui->main_stacked_widget->setCurrentIndex(0);
+        ui->menu_stackedWidget->setCurrentIndex(0);
+        return;
     }
     if (round % 2 == 0){
         first_player = 1;
