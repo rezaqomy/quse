@@ -154,7 +154,7 @@ void MainWindow::checkMultyMode()
 {
     number_question = 0;
 
-    if (round == 2 && part_of_round == 2){
+    if (round == 3 && part_of_round == 2){
         QMessageBox msgbox;
         if (player_one_responsed > player_two_responsed) {
             msgbox.setText("the " + name_player_one + "is wone !!!");
