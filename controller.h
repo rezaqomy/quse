@@ -8,7 +8,7 @@
 #include "getingqustions.h"
 #include "repository.h"
 #include "mainwindow.h"
-#include "score.h"
+
 
 
 class Controller: public QObject
