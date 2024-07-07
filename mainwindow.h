@@ -54,6 +54,8 @@ private slots:
 
     void on_btnStartMulti_clicked();
 
+    void on_btnBack2_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     AboutUs *ptrabout;

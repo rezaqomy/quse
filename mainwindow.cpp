@@ -83,11 +83,11 @@ void MainWindow::startLoading()
 void MainWindow::setQuestion(Question *question)
 {
     if (mode == 1) {
-        ui->correct_response_label->setText(QString::number(ressponsed_single));
-        ui->wrong_response_label->setText(QString::number(wrong_ressponse_single));
+//        ui->correct_response_label->setText(QString::number(ressponsed_single));
+//        ui->wrong_response_label->setText(QString::number(wrong_ressponse_single));
     } else if (mode == 2) {
-        ui->wrong_response_label->setText(QString::number(player_one_responsed));
-        ui->correct_response_label->setText(QString::number(player_two_responsed));
+//        ui->wrong_response_label->setText(QString::number(player_one_responsed));
+//        ui->correct_response_label->setText(QString::number(player_two_responsed));
     }
     ui->question_label->setText(question->getQuestion());
     QVector<QString> randomAnswer = question->getRandomAnswers();
@@ -116,7 +116,7 @@ void MainWindow::updateQuestions()
     }
     if (mode == 2) {
         startMultyMode();
-        qDebug() << "ok";
+        qDebug() << "Ok";
     }
     number_question++;
 }
@@ -132,18 +132,24 @@ void MainWindow::checkAnswer()
         if (mode == 2) {
             if (first_player != part_of_round) {
                 player_one_responsed++;
+                msgbox.setText(" You're Correct! \nTotal correct answer: " + QString::number(player_one_responsed));
             } else {
                 player_two_responsed++;
+                msgbox.setText(" You're Correct! \nTotal correct answer: " + QString::number(player_two_responsed));
             }
+
+        }else{
+        msgbox.setText(" You're Correct! \nTotal streak: " + QString::number(ressponsed_single));
         }
-        msgbox.setText("you response correct");
         
     } else {
 
         if (mode == 1){
             wrong_ressponse_single++;
+            msgbox.setText(" Wrong Answer :( \n" + QString::number(wrong_ressponse_single) + " out of 3");
+        }else {
+        msgbox.setText(" Wrong Answer :( ");
         }
-        msgbox.setText("you not responsed !!!");
 
     }
 
@@ -157,11 +163,11 @@ void MainWindow::checkMultyMode()
     if (round == 3 && part_of_round == 2){
         QMessageBox msgbox;
         if (player_one_responsed > player_two_responsed) {
-            msgbox.setText("the " + name_player_one + "is wone !!!");
+            msgbox.setText("\" " + name_player_one + " \" is won !!!");
         } else if (player_one_responsed == player_two_responsed) {
-            msgbox.setText("draw!!!");
+            msgbox.setText("Draw!!!");
         } else {
-            msgbox.setText("the " + name_player_two + "is wone !!!");
+            msgbox.setText("\" " + name_player_two + " \" is wone !!!");
         }
         msgbox.exec();
         ui->main_stacked_widget->setCurrentIndex(0);
@@ -202,7 +208,7 @@ void MainWindow::startMultyMode()
 {
     userAnswer = "";
     if (questions.size() != 5){
-        qDebug() << "the questions size lastes 1 this mean question not resived";
+        qDebug() << "The questions size lastes 1. This mean question not received";
         ui->main_stacked_widget->setCurrentIndex(3);
         QMessageBox qmsgbox;
         qmsgbox.setText("اشکال در دریافت سوال");
@@ -260,7 +266,7 @@ void MainWindow::on_pushButton_clicked()
     else if (ui->answer3_radioButton->isChecked()) userAnswer = ui->answer3_radioButton->text();
     else if (ui->answer4_radioButton->isChecked()) userAnswer = ui->answer4_radioButton->text();
     else {
-        qDebug() << "please select them";
+        qDebug() << "Please choose an answer";
 
         return;
     }
@@ -269,7 +275,8 @@ void MainWindow::on_pushButton_clicked()
     checkAnswer();
     if (mode == 1 && wrong_ressponse_single >= 3){
         QMessageBox msgbox;
-        msgbox.setText("you losse !!!");
+        msgbox.setText("You loose !!!");
+        msgbox.exec();
         emit sendScore(ressponsed_single, diffcaly, nameSingle);
         ui->main_stacked_widget->setCurrentIndex(0);
         ui->menu_stackedWidget->setCurrentIndex(0);
@@ -335,5 +342,12 @@ void MainWindow::on_btnStartMulti_clicked()
     name_player_two = ui->txtNameSecond->text();
     part_of_round = 1;
     checkMultyMode();
+}
+
+
+void MainWindow::on_btnBack2_2_clicked()
+{
+    ui->main_stacked_widget->setCurrentIndex(0);
+    ui->menu_stackedWidget->setCurrentIndex(0);
 }
 

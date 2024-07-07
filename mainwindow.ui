@@ -454,7 +454,7 @@ background-color: rgb(0, 0, 127);</string>
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>please wait</string>
+         <string>Please wait</string>
         </property>
        </widget>
       </widget>
@@ -539,7 +539,7 @@ background-color: rgb(0, 0, 127);</string>
                <x>0</x>
                <y>0</y>
                <width>748</width>
-               <height>495</height>
+               <height>526</height>
               </rect>
              </property>
             </widget>
@@ -624,14 +624,14 @@ background-color: rgb(0, 0, 127);</string>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_14">
           <item>
-           <widget class="QLabel" name="wrong_response_label">
+           <widget class="QLabel" name="correct_response_label">
             <property name="text">
              <string/>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="correct_response_label">
+           <widget class="QLabel" name="wrong_response_label">
             <property name="text">
              <string/>
             </property>
@@ -696,8 +696,8 @@ background-color: rgb(0, 0, 127);</string>
                   <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Medium'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu Medium'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -880,6 +880,25 @@ p, li { white-space: pre-wrap; }
       <widget class="QWidget" name="page_2">
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
+         <widget class="QPushButton" name="btnBack2_2">
+          <property name="font">
+           <font>
+            <family>B Nazanin</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Main Menu</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QScrollArea" name="score_scrollArea">
           <property name="widgetResizable">
            <bool>true</bool>
@@ -889,8 +908,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>993</width>
-             <height>560</height>
+             <width>1001</width>
+             <height>535</height>
             </rect>
            </property>
           </widget>
