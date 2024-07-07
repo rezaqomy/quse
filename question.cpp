@@ -36,7 +36,21 @@ QString Question::getCorrectAnswer() const {
 }
 
 const QVector<QString>& Question::getIncorrectAnswers() const {
-  return incorrect_answers;
+    return incorrect_answers;
+}
+
+QVector<QString> Question::getRandomAnswers()
+{
+    QVector<QString> randomAnswer {};
+    QVector<QString> answer = incorrect_answers;
+    answer.push_back(correct_answer);
+    int size = answer.size();
+    for (int i{size - 1}; i >= 0; i--){
+        int randomNumber = random::getRandom(i);
+        randomAnswer.push_back(answer[randomNumber]);
+        answer.remove(randomNumber);
+    }
+    return randomAnswer;
 }
 
 void Question::setType(const QString& newType) {
