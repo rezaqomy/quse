@@ -18,6 +18,8 @@ void Controller::sendQuestionRequest(int category, QString diffically)
     if (category == 0) {
         getQuestion->getRandomQuestion(diffically);
         return;
+    } else {
+        getQuestion->getQuestion(5, category, diffically);
     }
 }
 

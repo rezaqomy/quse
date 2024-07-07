@@ -16,7 +16,7 @@ void MainWindow::setCategory(QVector<Category *> &categorys)
     QVBoxLayout* layout = new QVBoxLayout();
     for (int i{}; i < categorys.size(); i++){
         CategoryView* catview = new CategoryView(categorys[i]);
-        catview->connect(catview, &CategoryView::categorySelected, this, &MainWindow::handelGetQuestion);
+        catview->connect(catview, &CategoryView::categorySelected, this, &MainWindow::setCategoryQuestion);
         layout->addWidget(catview, i, 0);
     }
     window->setLayout(layout);
@@ -99,35 +99,21 @@ void MainWindow::handelGetQuestion(int id = 0)
         emit getCategoryRequest(0 , diffcaly);
     }
     else {
-        emit getCategoryRequest(id);
+        emit getCategoryRequest(id, diffcaly);
     }
     startLoading();
 }
 
-void MainWindow::startSurvivalMode()
-{
-
-
-    userAnswer = "";
-    if (questions.size() == 0){
-        qDebug() << "the questions size lastes 1 this mean question not resived";
-        ui->main_stacked_widget->setCurrentIndex(3);
-        QMessageBox qmsgbox;
-        qmsgbox.setText("اشکال در دریافت سوال");
-        qmsgbox.exec();
-        return;
-    }
-    setQuestion(questions[0]);
-    correctAnswer = questions[0]->getCorrectAnswer();
-    ui->main_stacked_widget->setCurrentIndex(3);
-}
-
 void MainWindow::updateQuestions()
 {
-    switch (mode) {
-    case 1:
+    if (mode == 1) {
         startSurvivalMode();
     }
+    if (mode == 2) {
+        startMultyMode();
+        qDebug() << "ok";
+    }
+    number_question++;
 }
 
 void MainWindow::checkAnswer()
@@ -153,6 +139,61 @@ void MainWindow::checkAnswer()
     msgbox.exec();
 }
 
+void MainWindow::checkMultyMode()
+{
+    if (round % 2 == 0){
+        first_player = 1;
+    } else {
+        first_player = 2;
+    }
+
+
+    // this code set player name in the all name label in ui
+    if (first_player == part_of_round) {
+        setNamePlayer(name_player_one);
+    } else {
+        setNamePlayer(name_player_two);
+    }
+    if (part_of_round == 1) {
+        ui->main_stacked_widget->setCurrentIndex(2);
+        part_of_round++;
+    } else {
+        handelGetQuestion(category);
+        part_of_round = 1;
+        round++;
+    }
+}
+
+void MainWindow::setNamePlayer(QString name)
+{
+    ui->playerNameCategorylabel->setText(name);
+    ui->playerNameDifficalyLabel->setText(name);
+    ui->playerNameQuestionLabel->setText(name);
+}
+
+void MainWindow::startMultyMode()
+{
+    userAnswer = "";
+    if (questions.size() != 5){
+        qDebug() << "the questions size lastes 1 this mean question not resived";
+        ui->main_stacked_widget->setCurrentIndex(3);
+        QMessageBox qmsgbox;
+        qmsgbox.setText("اشکال در دریافت سوال");
+        qmsgbox.exec();
+        return;
+    }
+    setQuestion(questions[number_question]);
+    correctAnswer = questions[number_question]->getCorrectAnswer();
+    ui->main_stacked_widget->setCurrentIndex(3);
+}
+
+void MainWindow::setCategoryQuestion(int category)
+{
+    this->category = category;
+    ui->main_stacked_widget->setCurrentIndex(4);
+}
+
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -172,13 +213,6 @@ void MainWindow::on_btnExit_clicked()
 }
 
 
-void MainWindow::on_btnSingle_clicked()
-{
-    ressponsed_single = 0;
-    wrong_ressponse_single = 0;
-    ui->menu_stackedWidget->setCurrentIndex(1);
-}
-
 
 void MainWindow::on_btnMulti_clicked()
 {
@@ -189,14 +223,6 @@ void MainWindow::on_btnMulti_clicked()
 void MainWindow::on_btnBack2_clicked()
 {
     ui->menu_stackedWidget->setCurrentIndex(0);
-}
-
-
-void MainWindow::on_btnStartSingle_clicked()
-{
-    mode = 1;
-    nameSingle = ui->txtName->text();
-    ui->main_stacked_widget->setCurrentIndex(4);
 }
 
 
@@ -215,16 +241,24 @@ void MainWindow::on_pushButton_clicked()
     isResponsed = true;
     checkAnswer();
     if (mode == 1 && wrong_ressponse_single >= 3){
-
-    QMessageBox msgbox;
-    msgbox.setText("you losse !!!");
-    emit sendScore(ressponsed_single, diffcaly, nameSingle);
-    ui->main_stacked_widget->setCurrentIndex(0);
-    ui->menu_stackedWidget->setCurrentIndex(0);
-    return;
+        QMessageBox msgbox;
+        msgbox.setText("you losse !!!");
+        emit sendScore(ressponsed_single, diffcaly, nameSingle);
+        ui->main_stacked_widget->setCurrentIndex(0);
+        ui->menu_stackedWidget->setCurrentIndex(0);
+        return;
     }
-    handelGetQuestion();
-
+    if (mode == 1) {
+        handelGetQuestion();
+    }
+    else if (mode == 2) {
+        if (number_question >= 4) {
+            checkMultyMode();
+        }
+        else {
+            updateQuestions();
+        }
+    }
 }
 
 
@@ -233,6 +267,8 @@ void MainWindow::on_easy_pushButton_clicked()
     diffcaly = "easy";
     if (mode == 1){
         handelGetQuestion();
+    } else if (mode == 2) {
+        handelGetQuestion(category);
     }
 }
 
@@ -242,6 +278,8 @@ void MainWindow::on_medium_pushButton_clicked()
     diffcaly = "medium";
     if (mode == 1){
         handelGetQuestion();
+    } else if (mode == 2){
+        handelGetQuestion(category);
     }
 }
 
@@ -251,6 +289,8 @@ void MainWindow::on_hard_pushButton_clicked()
     diffcaly = "hard";
     if (mode == 1){
         handelGetQuestion();
+    } else if (mode == 2) {
+        handelGetQuestion(category);
     }
 }
 
@@ -258,5 +298,16 @@ void MainWindow::on_hard_pushButton_clicked()
 void MainWindow::on_btnScoreBoard_clicked()
 {
     emit getAllScore();
+}
+
+
+void MainWindow::on_btnStartMulti_clicked()
+{
+    mode = 2;
+    name_player_one = ui->txtNameFirst->text();
+    name_player_two = ui->txtNameSecond->text();
+    part_of_round = 1;
+    number_question = 0;
+    checkMultyMode();
 }
 

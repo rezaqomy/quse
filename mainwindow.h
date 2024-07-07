@@ -52,6 +52,8 @@ private slots:
 
     void on_btnScoreBoard_clicked();
 
+    void on_btnStartMulti_clicked();
+
 private:
     Ui::MainWindow *ui;
     AboutUs *ptrabout;
@@ -64,6 +66,10 @@ private:
     void startSurvivalMode();
     void updateQuestions();
     void checkAnswer();
+    void checkMultyMode();
+    void setNamePlayer(QString name);
+    void startMultyMode();
+    void setCategoryQuestion(int category);
 
 
     int ressponsed_single{};
@@ -71,11 +77,21 @@ private:
     QString diffcaly{};
     QString nameSingle{};
 
+    int player_one_responsed{};
+    int player_two_responsed{};
+    int category{};
+    int first_player{};
+    int round{};
+    int part_of_round{};
+    int number_question;
+    QString name_player_one{};
+    QString name_player_two{};
+
     bool isResponsed{};
     QString userAnswer{};
     QString correctAnswer{};
     QVector<Question *> questions;
     int mode{};
-    QMap<int, bool> survivalQuestions{};
+
 };
 #endif // MAINWINDOW_H

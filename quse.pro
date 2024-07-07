@@ -21,7 +21,8 @@ SOURCES += \
     getingqustions.cpp \
     question.cpp \
     random.cpp \
-    repository.cpp
+    repository.cpp \
+    single_player_mode.cpp
 
 HEADERS += \
     categoryview.h \
