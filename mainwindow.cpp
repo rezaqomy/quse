@@ -82,8 +82,13 @@ void MainWindow::startLoading()
 
 void MainWindow::setQuestion(Question *question)
 {
-    ui->correct_response_label->setText(QString::number(ressponsed_single));
-    ui->wrong_response_label->setText(QString::number(wrong_ressponse_single));
+    if (mode == 1) {
+        ui->correct_response_label->setText(QString::number(ressponsed_single));
+        ui->wrong_response_label->setText(QString::number(wrong_ressponse_single));
+    } else if (mode == 2) {
+        ui->wrong_response_label->setText(QString::number(player_one_responsed));
+        ui->correct_response_label->setText(QString::number(player_two_responsed));
+    }
     ui->question_label->setText(question->getQuestion());
     QVector<QString> randomAnswer = question->getRandomAnswers();
     ui->answer1_radioButton->setText(randomAnswer[0]);
@@ -124,7 +129,13 @@ void MainWindow::checkAnswer()
     }
     if (correctAnswer == userAnswer){
 
-
+        if (mode == 2) {
+            if (first_player != part_of_round) {
+                player_one_responsed++;
+            } else {
+                player_two_responsed++;
+            }
+        }
         msgbox.setText("you response correct");
         
     } else {
@@ -141,6 +152,11 @@ void MainWindow::checkAnswer()
 
 void MainWindow::checkMultyMode()
 {
+    number_question = 0;
+
+    if (round == 2 && part_of_round == 2){
+        ;
+    }
     if (round % 2 == 0){
         first_player = 1;
     } else {
@@ -252,7 +268,7 @@ void MainWindow::on_pushButton_clicked()
         handelGetQuestion();
     }
     else if (mode == 2) {
-        if (number_question >= 4) {
+        if (number_question >= 5) {
             checkMultyMode();
         }
         else {
@@ -307,7 +323,6 @@ void MainWindow::on_btnStartMulti_clicked()
     name_player_one = ui->txtNameFirst->text();
     name_player_two = ui->txtNameSecond->text();
     part_of_round = 1;
-    number_question = 0;
     checkMultyMode();
 }
 
