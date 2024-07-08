@@ -410,19 +410,20 @@ void MainWindow::on_pushButton_2_clicked()
 
 
 
-      QMessageBox zartbox;
+//      QMessageBox zartbox;
 
 
       if (!isPlaying) {
-         music = new QSound(":/Images/Resources/aspose_Angize.wav");
+         music = new QSound(":/Images/Resources/Angize.wav");
 
          music->play();
          isPlaying = true;
          qDebug() << "ok";
       }else {
-         zartbox.setText("Just Listen To The Music!!!");
-         zartbox.exec();
+//         zartbox.setText("Just Listen To The Music!!!");
+//         zartbox.exec();
          music->stop();
+         isPlaying = false;
 
 
 }

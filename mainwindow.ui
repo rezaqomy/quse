@@ -145,7 +145,7 @@
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -162,7 +162,7 @@ background-color: rgb(0, 0, 127);</string>
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -179,7 +179,7 @@ background-color: rgb(0, 0, 127);</string>
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -196,7 +196,7 @@ background-color: rgb(0, 0, 127);</string>
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -213,7 +213,7 @@ background-color: rgb(0, 0, 127);</string>
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="autoFillBackground">
@@ -265,6 +265,11 @@ background-color: rgb(0, 0, 127);</string>
                      </item>
                      <item>
                       <widget class="QLineEdit" name="txtName">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>player</string>
                        </property>
@@ -277,7 +282,7 @@ background-color: rgb(0, 0, 127);</string>
                      <property name="font">
                       <font>
                        <family>B Nazanin</family>
-                       <pointsize>13</pointsize>
+                       <pointsize>14</pointsize>
                       </font>
                      </property>
                      <property name="text">
@@ -304,7 +309,7 @@ background-color: rgb(0, 0, 127);</string>
                   <property name="font">
                    <font>
                     <family>B Nazanin</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>12</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -365,7 +370,7 @@ background-color: rgb(0, 0, 127);</string>
                   <property name="font">
                    <font>
                     <family>B Nazanin</family>
-                    <pointsize>10</pointsize>
+                    <pointsize>12</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -418,7 +423,7 @@ background-color: rgb(0, 0, 127);</string>
                 <property name="font">
                  <font>
                   <family>B Nazanin</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                 <property name="text">
@@ -571,7 +576,7 @@ background-color: rgb(0, 0, 127);</string>
                <x>0</x>
                <y>0</y>
                <width>748</width>
-               <height>495</height>
+               <height>526</height>
               </rect>
              </property>
             </widget>
@@ -695,7 +700,7 @@ background-color: rgb(0, 0, 127);</string>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <pointsize>14</pointsize>
                   </font>
                  </property>
                  <property name="readOnly">
@@ -705,8 +710,8 @@ background-color: rgb(0, 0, 127);</string>
                   <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Medium'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu Medium'; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -714,7 +719,7 @@ p, li { white-space: pre-wrap; }
                 <widget class="QRadioButton" name="answer1_radioButton">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <pointsize>14</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
@@ -732,7 +737,7 @@ p, li { white-space: pre-wrap; }
                 <widget class="QRadioButton" name="answer2_radioButton">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <pointsize>14</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
@@ -750,7 +755,7 @@ p, li { white-space: pre-wrap; }
                 <widget class="QRadioButton" name="answer3_radioButton">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <pointsize>14</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
@@ -768,7 +773,7 @@ p, li { white-space: pre-wrap; }
                 <widget class="QRadioButton" name="answer4_radioButton">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <pointsize>14</pointsize>
                   </font>
                  </property>
                  <property name="cursor">
@@ -788,7 +793,7 @@ p, li { white-space: pre-wrap; }
               <widget class="QPushButton" name="pushButton">
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>14</pointsize>
                 </font>
                </property>
                <property name="cursor">
@@ -907,7 +912,7 @@ p, li { white-space: pre-wrap; }
              </font>
             </property>
             <property name="text">
-             <string>diffcaly</string>
+             <string>difficulty</string>
             </property>
            </widget>
           </item>
@@ -951,6 +956,11 @@ p, li { white-space: pre-wrap; }
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
               <property name="text">
                <string>easy</string>
               </property>
@@ -964,6 +974,11 @@ p, li { white-space: pre-wrap; }
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
               <property name="text">
                <string>medium</string>
               </property>
@@ -976,6 +991,11 @@ p, li { white-space: pre-wrap; }
                 <width>211</width>
                 <height>0</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+               </font>
               </property>
               <property name="text">
                <string>hard</string>
@@ -1021,7 +1041,7 @@ p, li { white-space: pre-wrap; }
           <property name="font">
            <font>
             <family>B Nazanin</family>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="cursor">
@@ -1037,6 +1057,11 @@ p, li { white-space: pre-wrap; }
         </item>
         <item>
          <widget class="QScrollArea" name="score_scrollArea">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -1045,8 +1070,8 @@ p, li { white-space: pre-wrap; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>993</width>
-             <height>516</height>
+             <width>1001</width>
+             <height>531</height>
             </rect>
            </property>
           </widget>
