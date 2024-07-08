@@ -8,5 +8,5 @@ And the survival mode where you have to answer the questions correctly and if yo
 ### windows 
 <br>
 1 - first download and install 
-[open-ssl-win32]()
-[open-ssl-win64]()
+[open-ssl-win32](https://slproweb.com/download/Win32OpenSSL-1_1_1w.exe)
+[open-ssl-win64](https://slproweb.com/download/Win64OpenSSL-1_1_1w.exe)
