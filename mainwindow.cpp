@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 //    efx->setLoopCount(2);
 //    efx->play();
 
+    on_pushButton_2_clicked();
+
 
     ptrabout = new AboutUs();
 }
