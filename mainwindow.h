@@ -105,5 +105,11 @@ private:
     QVector<Question *> questions;
     int mode{};
 
+
+    bool isPlaying = false;
+    QSound *music;
+
+
+
 };
 #endif // MAINWINDOW_H

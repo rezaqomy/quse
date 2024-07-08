@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 //    efx->setLoopCount(2);
 //    efx->play();
 
+
     ptrabout = new AboutUs();
 }
 
@@ -147,6 +148,7 @@ void MainWindow::checkAnswer()
         }else{
         msgbox.setText(" You're Correct! \nTotal streak: " + QString::number(ressponsed_single));
         }
+        QSound::play(":/Images/Resources/17.Correct-Answer.wav");
         
     } else {
 
@@ -156,6 +158,7 @@ void MainWindow::checkAnswer()
         }else {
         msgbox.setText(" Wrong Answer :( ");
         }
+        QSound::play(":/Images/Resources/24.Wrong-Answer.wav");
 
     }
 
@@ -171,10 +174,11 @@ void MainWindow::checkMultyMode()
         if (player_one_responsed > player_two_responsed) {
             msgbox.setText("\" " + name_player_one + " \" is won !!!");
         } else if (player_one_responsed == player_two_responsed) {
-            msgbox.setText("Draw!!!");
+            msgbox.setText("Tie!!!");
         } else {
             msgbox.setText("\" " + name_player_two + " \" is wone !!!");
         }
+        QSound::play(":/Images/Resources/42.Kids-Cheering.wav");
         msgbox.exec();
         ui->main_stacked_widget->setCurrentIndex(0);
         ui->menu_stackedWidget->setCurrentIndex(0);
@@ -242,25 +246,31 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnAbout_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     ptrabout -> show();
 }
 
 
 void MainWindow::on_btnExit_clicked()
 {
-    this -> close();
+
+        this -> close();
+
+
 }
 
 
 
 void MainWindow::on_btnMulti_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     ui->menu_stackedWidget->setCurrentIndex(2);
 }
 
 
 void MainWindow::on_btnBack2_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     ui->menu_stackedWidget->setCurrentIndex(0);
 }
 
@@ -282,6 +292,7 @@ void MainWindow::on_pushButton_clicked()
     if (mode == 1 && wrong_ressponse_single >= 3){
         QMessageBox msgbox;
         msgbox.setText("You loose !!!");
+        QSound::play(":/Images/Resources/16.WahWahWah.wav");
         msgbox.exec();
         emit sendScore(ressponsed_single, diffcaly, nameSingle);
         ui->main_stacked_widget->setCurrentIndex(0);
@@ -304,6 +315,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_easy_pushButton_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     diffcaly = "easy";
     if (mode == 1){
         handelGetQuestion();
@@ -315,6 +327,7 @@ void MainWindow::on_easy_pushButton_clicked()
 
 void MainWindow::on_medium_pushButton_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     diffcaly = "medium";
     if (mode == 1){
         handelGetQuestion();
@@ -326,6 +339,7 @@ void MainWindow::on_medium_pushButton_clicked()
 
 void MainWindow::on_hard_pushButton_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     diffcaly = "hard";
     if (mode == 1){
         handelGetQuestion();
@@ -337,12 +351,14 @@ void MainWindow::on_hard_pushButton_clicked()
 
 void MainWindow::on_btnScoreBoard_clicked()
 {
+    QSound::play(":/Images/Resources/82.Tadah.wav");
     emit getAllScore();
 }
 
 
 void MainWindow::on_btnStartMulti_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     mode = 2;
     name_player_one = ui->txtNameFirst->text();
     name_player_two = ui->txtNameSecond->text();
@@ -353,6 +369,7 @@ void MainWindow::on_btnStartMulti_clicked()
 
 void MainWindow::on_btnBack2_2_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     ui->main_stacked_widget->setCurrentIndex(0);
     ui->menu_stackedWidget->setCurrentIndex(0);
 }
@@ -366,16 +383,21 @@ void MainWindow::on_btnBack2_2_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
 // Using QSound
-//            QSound sound(":/Images/Resources/Angize.mp3");
+//            QSound sound(":/Images/Resources/aspose_Angize.wav");
 //            sound.play();
 
-        QSound::play(":/Images/Resources/Angize.mp3");
+//        QSound::play(":/Images/Resources/aspose_Angize.wav");
+
 
 // Using QMediaPlayer
 //            QMediaPlayer *backSound = new QMediaPlayer;
 //            backSound->setMedia(QUrl::fromLocalFile("Sounds/Background/Angize.mp3"));
 //            backSound->setVolume(50);
 //            backSound->play();
+
+//    QMediaPlayer mediaPlayer;
+//    mediaPlayer.setMedia(QUrl(":/Images/Resources/aspose_Angize.wav"));
+//    mediaPlayer.play();
 
 // Using QSoundEffect
 //        QSoundEffect soundEffect(":/Images/Resources/Angize.mp3");
@@ -384,6 +406,31 @@ void MainWindow::on_pushButton_2_clicked()
 //        soundEffect.setFadeInTime(500);
 //        soundEffect.play();
 //        soundEffect.stop();
+
+
+      music = new QSound(":/Images/Resources/aspose_Angize.wav");
+      QMessageBox zartbox;
+
+
+      if (!isPlaying) {
+
+
+         music->play();
+         isPlaying = true;
+         qDebug() << "ok";
+      }else {
+         zartbox.setText("Just Listen To The Music!!!");
+         zartbox.exec();
+         music->stop();
+         qDebug() << "dkdkd";
+//         isPlaying = false;
+}
+
+
+
+
+
+
 
 
 }

@@ -23,6 +23,7 @@ void MainWindow::startSurvivalMode()
 
 void MainWindow::on_btnSingle_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     ressponsed_single = 0;
     wrong_ressponse_single = 0;
     ui->menu_stackedWidget->setCurrentIndex(1);
@@ -30,6 +31,7 @@ void MainWindow::on_btnSingle_clicked()
 
 void MainWindow::on_btnStartSingle_clicked()
 {
+    QSound::play(":/Images/Resources/aspose_Click.wav");
     mode = 1;
     nameSingle = ui->txtName->text();
     ui->main_stacked_widget->setCurrentIndex(4);

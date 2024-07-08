@@ -2,5 +2,15 @@
     <qresource prefix="/Images">
         <file>Resources/Bg1.jpeg</file>
         <file>Resources/Angize.mp3</file>
+        <file>Resources/aspose_Angize.wav</file>
+        <file>Resources/16.WahWahWah.wav</file>
+        <file>Resources/17.Correct-Answer.wav</file>
+        <file>Resources/24.Wrong-Answer.wav</file>
+        <file>Resources/42.Kids-Cheering.wav</file>
+        <file>Resources/70.Super-Mario-Game-Over.wav</file>
+        <file>Resources/82.Tadah.wav</file>
+        <file>Resources/aspose_Click.wav</file>
+        <file>Resources/Untitled-1.jpg</file>
+        <file>Resources/Untitled-2.jpg</file>
     </qresource>
 </RCC>
