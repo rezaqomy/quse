@@ -408,13 +408,13 @@ void MainWindow::on_pushButton_2_clicked()
 //        soundEffect.stop();
 
 
-      music = new QSound(":/Images/Resources/aspose_Angize.wav");
+
 
       QMessageBox zartbox;
 
 
       if (!isPlaying) {
-
+         music = new QSound(":/Images/Resources/aspose_Angize.wav");
 
          music->play();
          isPlaying = true;
@@ -423,8 +423,8 @@ void MainWindow::on_pushButton_2_clicked()
          zartbox.setText("Just Listen To The Music!!!");
          zartbox.exec();
          music->stop();
-         qDebug() << "dkdkd";
-//         isPlaying = false;
+
+
 }
 
 
