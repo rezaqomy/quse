@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/Images">
         <file>Resources/Bg1.jpeg</file>
+        <file>Resources/Angize.mp3</file>
     </qresource>
 </RCC>

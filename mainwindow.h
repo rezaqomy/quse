@@ -5,6 +5,10 @@
 #include <QDebug>
 #include <QMap>
 #include <QMessageBox>
+#include <QtMultimedia/QSound>
+#include <QtMultimedia/QMediaPlayer>
+#include <QSoundEffect>
+#include <QtMultimedia/QSoundEffect>
 #include "aboutus.h"
 #include "categoryview.h"
 #include "question.h"
@@ -55,6 +59,12 @@ private slots:
     void on_btnStartMulti_clicked();
 
     void on_btnBack2_2_clicked();
+
+//    void on_pushButton_2_clicked();
+
+//    void on_btnMusic_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

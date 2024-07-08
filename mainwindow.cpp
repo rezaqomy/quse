@@ -7,6 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+//    QSoundEffect *efx = new QSoundEffect(this);
+//    efx->setSource(QUrl::fromLocalFile(":Sounds/Background/Angize.mp3"));
+//    efx->setVolume(0.90);
+//    efx->setLoopCount(2);
+//    efx->play();
+
     ptrabout = new AboutUs();
 }
 
@@ -349,5 +355,36 @@ void MainWindow::on_btnBack2_2_clicked()
 {
     ui->main_stacked_widget->setCurrentIndex(0);
     ui->menu_stackedWidget->setCurrentIndex(0);
+}
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+// Using QSound
+//            QSound sound(":/Images/Resources/Angize.mp3");
+//            sound.play();
+
+        QSound::play(":/Images/Resources/Angize.mp3");
+
+// Using QMediaPlayer
+//            QMediaPlayer *backSound = new QMediaPlayer;
+//            backSound->setMedia(QUrl::fromLocalFile("Sounds/Background/Angize.mp3"));
+//            backSound->setVolume(50);
+//            backSound->play();
+
+// Using QSoundEffect
+//        QSoundEffect soundEffect(":/Images/Resources/Angize.mp3");
+//        soundEffect.setVolume(0.5);
+//        soundEffect.setLoop(true);
+//        soundEffect.setFadeInTime(500);
+//        soundEffect.play();
+//        soundEffect.stop();
+
+
 }
 
