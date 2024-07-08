@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/Images">
         <file>Resources/Bg1.jpeg</file>
-        <file>Resources/Angize.mp3</file>
         <file>Resources/aspose_Angize.wav</file>
         <file>Resources/16.WahWahWah.wav</file>
         <file>Resources/17.Correct-Answer.wav</file>
